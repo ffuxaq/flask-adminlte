@@ -4,10 +4,11 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from flask_login import UserMixin
-
 from apps import db, login_manager
-
 from apps.authentication.util import hash_pass
+from werkzeug.security import generate_password_hash, check_password_hash
+from typing import Optional
+import sqlalchemy.orm as so
 
 class Users(db.Model, UserMixin):
 
@@ -17,6 +18,10 @@ class Users(db.Model, UserMixin):
     username = db.Column(db.String(64), unique=True)
     email = db.Column(db.String(64), unique=True)
     password = db.Column(db.LargeBinary)
+    password_hash: so.Mapped[Optional[str]] = so.mapped_column(db.String(256)) 
+    
+    def check_password(self, password):
+        return check_password_hash(str(self.password_hash), password)
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():
