@@ -65,7 +65,7 @@ class ProductionConfig(Config):
 
 
 class DebugConfig(Config):
-    DEBUG = True
+    DEBUG = False
 
 
 # Load all possible configurations
