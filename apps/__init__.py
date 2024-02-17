@@ -28,7 +28,7 @@ def register_blueprints(app):
 
 def configure_database(app):
 
-    @app.before_first_request
+   # il decorator è stato rimosso dopo flask 2.3.4 @app.before_first_request
     def initialize_database():
         try:
             db.create_all()
