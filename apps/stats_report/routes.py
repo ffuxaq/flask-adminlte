@@ -2,15 +2,15 @@ from flask import render_template, redirect, url_for, flash, request
 from urllib.parse import urlsplit
 from flask_login import login_user, logout_user, current_user
 import sqlalchemy as sa
-from apps import db
-from apps.stats_report import bp
+from app.flask_adminlte.apps import db
+from app.flask_adminlte.apps.stats_report import bp
 from flask_babel import _
-# from app.auth.forms import LoginForm, RegistrationForm, \
+# from app.flask_adminlte.apps.auth.forms import LoginForm, RegistrationForm, \
 #     ResetPasswordRequestForm, ResetPasswordForm
-from apps.authentication.models import Users as User
+from app.flask_adminlte.apps.authentication.models import Users as User
 # from apps.auth.email import send_password_reset_email
 from werkzeug.security import generate_password_hash, check_password_hash
-from apps.stats_report.forms import ReportForm
+from app.flask_adminlte.apps.stats_report.forms import ReportForm
 
 
 @bp.route('/stats_report', methods=['GET', 'POST'])

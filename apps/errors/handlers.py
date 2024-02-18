@@ -1,6 +1,6 @@
 from flask import render_template, request
-from apps import db
-from apps.errors import bp
+from app.flask_adminlte.apps.apps import db
+from app.flask_adminlte.apps.apps.errors import bp
 from werkzeug.http import HTTP_STATUS_CODES
 
 

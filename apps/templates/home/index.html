@@ -28,7 +28,10 @@
   <link rel="stylesheet" href="/static/assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="/static/assets/plugins/summernote/summernote-bs4.min.css">
-
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/static/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    
 {% endblock stylesheets %}
 
 {% block content %}
@@ -57,14 +60,17 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
+
+
+  
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{countProvvTot}}</h3>
 
-                <p>New Orders</p>
+                <p>Provvedimenti Totali</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -77,9 +83,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{countSent}}</h3>
 
-                <p>Bounce Rate</p>
+                <p>Sentenze</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -92,9 +98,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{countProvv}}</h3>
 
-                <p>User Registrations</p>
+                <p>Altri Provvedimenti</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -107,9 +113,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{numeroGiudici}}</h3>
 
-                <p>Unique Visitors</p>
+                <p>Working Judges (Giudici impiegati) </p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -119,7 +125,70 @@
           </div>
           <!-- ./col -->
         </div>
-        <!-- /.row -->
+
+
+
+
+
+
+<!-- Inizio tabella -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Ultime informazioni  - Definizione Ulimo mese per Giudice e per Registro</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="table1_lastmonth" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Codice Ufficio</th>
+        <th>Giudice</th>
+        <th>Registro</th>
+        <th>Sentenza/No Sentenza</th>
+        <th>Numero Fascicoli</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for res in results -%}  
+      <tr>
+        <td>{{ res[2] }}</td>
+        <td>{{ res[0] }}</td>
+        <td>{{ res[3] }}</td>
+        <td>{{ res[65]}}</td>
+        <td>{{ res[64]}}</td>
+      </tr>
+      {% endfor %}
+
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>Codice Ufficio</th>
+        <th>Giudice</th>
+        <th>Registro</th>
+        <th>Sentenza/No Sentenza</th>
+        <th>Numero Fascicoli</th>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>
+<!-- /.card -->
+</div>
+
+</div>
+</div>
+
+<!-- fine tabella -->
+
+
+      <!-- /.row -->
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
@@ -678,5 +747,33 @@
   <script src="/static/assets/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="/static/assets/js/demo.js"></script>
+
+
+  <!-- DataTables -->
+  <script src="/static/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="/static/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="/static/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="/static/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="/static/assets/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <!-- page script -->
+  <script>
+    $(function () {
+      $("#table1_lastmonth").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+      });
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
 
 {% endblock javascripts %}
