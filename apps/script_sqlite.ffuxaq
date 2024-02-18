@@ -1,0 +1,10 @@
+CREATE TABLE "Users2" (
+        id INTEGER NOT NULL,
+        username VARCHAR(64),
+        email VARCHAR(64),
+        password BLOB,
+		password_hash TEXT,
+        PRIMARY KEY (id),
+        UNIQUE (username),
+        UNIQUE (email)
+)
