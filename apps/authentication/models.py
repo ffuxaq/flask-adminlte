@@ -4,8 +4,8 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from flask_login import UserMixin
-from app.flask_adminlte.apps import db, login_manager
-from app.flask_adminlte.apps.authentication.util import hash_pass
+from app_cdc.flask_adminlte.apps import db, login_manager
+from app_cdc.flask_adminlte.apps.authentication.util import hash_pass
 from werkzeug.security import generate_password_hash, check_password_hash
 from typing import Optional
 import sqlalchemy.orm as so

@@ -3,11 +3,11 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
-from app.flask_adminlte.apps.home import blueprint
+from app_cdc.flask_adminlte.apps.home import blueprint
 from flask import render_template, request
 from flask_login import login_required
 from jinja2 import TemplateNotFound
-import app.flask_adminlte.apps.home.render_home as rendHome
+import app_cdc.flask_adminlte.apps.home.render_home as rendHome
 
 
 # @blueprint.route('/index')
@@ -17,7 +17,7 @@ import app.flask_adminlte.apps.home.render_home as rendHome
 @blueprint.route('/index')
 @login_required
 def index():
-   return rendHome.render('home/index.html',segment='index.html')
+   return rendHome.render('index.html',segment='index.html')
 
 @blueprint.route('/<template>')
 @login_required

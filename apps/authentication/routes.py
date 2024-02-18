@@ -10,12 +10,12 @@ from flask_login import (
     logout_user
 )
 
-from app.flask_adminlte.apps import db, login_manager
-from app.flask_adminlte.apps.authentication import blueprint
-from app.flask_adminlte.apps.authentication.forms import LoginForm, CreateAccountForm
-from app.flask_adminlte.apps.authentication.models import Users
+from app_cdc.flask_adminlte.apps import db, login_manager
+from app_cdc.flask_adminlte.apps.authentication import blueprint
+from app_cdc.flask_adminlte.apps.authentication.forms import LoginForm, CreateAccountForm
+from app_cdc.flask_adminlte.apps.authentication.models import Users
 
-from app.flask_adminlte.apps.authentication.util import verify_pass
+from app_cdc.flask_adminlte.apps.authentication.util import verify_pass
 
 
 @blueprint.route('/')

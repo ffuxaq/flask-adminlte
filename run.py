@@ -8,8 +8,9 @@ from   flask_migrate import Migrate
 from   flask_minify  import Minify
 from   sys import exit
 
-from apps.config import config_dict
-from apps import create_app, db
+from app_cdc.flask_adminlte.apps.config import config_dict
+from app_cdc.flask_adminlte.apps import create_app, db
+
 
 # WARNING: Don't run with debug turned on in production!
 DEBUG = (os.getenv('DEBUG', 'False') == 'True')

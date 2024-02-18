@@ -42,10 +42,11 @@
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-9">
             <h1 class="m-0 text-dark">CDC - Consolle di Cancelleria Dashboard</h1>
+            <h2 class="m-0 text-dark">Panel 1 - Mensile Range: {{period_start}} - {{period_end}}</h2>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div class="col-sm-3">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Dashboard v1</li>
@@ -58,9 +59,181 @@
 
     <!-- Main content -->
     <section class="content">
+
+
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
 
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  DEFINITI
+                </button>
+              </h2>
+            </div>
+        
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                
+                  <!-- Inizio Rettangoli definiti-->
+
+                  <div class="row">
+                    <div class="col-lg-3 col-6">
+                      <!-- small box -->
+                      <div class="small-box bg-info">
+                        <div class="inner">
+                          <h3>{{countProvvTot}}</h3>
+          
+                          <p>Provvedimenti Totali</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                      <!-- small box -->
+                      <div class="small-box bg-success">
+                        <div class="inner">
+                          <h3>{{countSent}}</h3>
+          
+                          <p>Sentenze</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                      <!-- small box -->
+                      <div class="small-box bg-warning">
+                        <div class="inner">
+                          <h3>{{countProvv}}</h3>
+          
+                          <p>Altri Provvedimenti</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                      <!-- small box -->
+                      <div class="small-box bg-danger">
+                        <div class="inner">
+                          <h3>{{numeroGiudici}}</h3>
+          
+                          <p>Working Judges (Giudici impiegati) </p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- ./col -->
+                  </div>
+
+                    <!-- Fine Rettangoli definiti-->
+
+                    <!-- Inizio tabella Definiti -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Ultime informazioni  - Definizione Ulimo mese per Giudice e per Registro</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="table1_lastmonth" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Codice Ufficio</th>
+        <th>Giudice</th>
+        <th>Registro</th>
+        <th>Sentenza/No Sentenza</th>
+        <th>Numero Fascicoli</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for res in results -%}  
+      <tr>
+        <td>{{ res[2] }}</td>
+        <td>{{ res[0] }}</td>
+        <td>{{ res[3] }}</td>
+        <td>{{ res[65]}}</td>
+        <td>{{ res[64]}}</td>
+      </tr>
+      {% endfor %}
+
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>Codice Ufficio</th>
+        <th>Giudice</th>
+        <th>Registro</th>
+        <th>Sentenza/No Sentenza</th>
+        <th>Numero Fascicoli</th>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>
+<!-- /.card -->
+</div>
+
+</div>
+</div>
+
+<!-- fine tabella Definiti-->
+
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Collapsible Group Item #2
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                Some placeholder content for the second accordion panel. This panel is hidden by default.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Collapsible Group Item #3
+                </button>
+              </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
 
   
         <div class="row">
@@ -741,8 +914,6 @@
   <script src="/static/assets/plugins/summernote/summernote-bs4.min.js"></script>
   <!-- overlayScrollbars -->
   <script src="/static/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="/static/assets/js/adminlte.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="/static/assets/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
