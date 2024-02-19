@@ -15,14 +15,40 @@ import app_cdc.flask_adminlte.apps.home.render_home as rendHome
 # def index():
 #     return render_template('home/index.html', segment='index')
 @blueprint.route('/index')
+@blueprint.route('/index.html')
 @login_required
 def index():
-   return rendHome.render('index.html',segment='index.html')
+   okTemplate = True
+   return rendHome.render_index1('index.html',segment='index.html')
+
+okTemplate = False
+# @blueprint.route('/index')
+# @login_required
+# def index():
+#     return render_template('home/index.html', segment='index')
+@blueprint.route('/index1')
+@blueprint.route('/index1.html')
+@login_required
+def index1():
+   okTemplate = True
+   return rendHome.render_index1('index1.html',segment='index1.html')
+
+# @blueprint.route('/index')
+# @login_required
+# def index():
+#     return render_template('home/index.html', segment='index')
+@blueprint.route('/index4')
+@blueprint.route('/index4.html')
+@login_required
+def index4():
+   okTemplate = True
+   return rendHome.render_index4('index4.html',segment='index4.html')
 
 @blueprint.route('/<template>')
 @login_required
-def route_template(template):
-
+def route_template(template:str):
+    if (okTemplate):
+        return ""
     try:
 
         if not template.endswith('.html'):
@@ -32,7 +58,7 @@ def route_template(template):
         seg = get_segment(request)
 
         # Serve the file (if exists) from app/templates/home/FILE.html
-        return rendHome.render(template, segment=seg)
+        return rendHome.render_template(template, segment=seg)
 
     except TemplateNotFound:
         return render_template('home/page-404.html'), 404
