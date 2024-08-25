@@ -38,5 +38,6 @@ if DEBUG:
     app.logger.info('DBMS             = ' + app_config.SQLALCHEMY_DATABASE_URI)
     app.logger.info('ASSETS_ROOT      = ' + app_config.ASSETS_ROOT )
 
-if __name__ == "__main__":
+# run from  app_cdc_flask_adminlte.run
+if __name__ == "app_cdc.flask_adminlte.run":
     app.run()
