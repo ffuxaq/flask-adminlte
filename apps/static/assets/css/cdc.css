@@ -1,0 +1,10 @@
+/* @copy FFUXAQ 2024 */
+.login-logo,
+.register-logo {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: .9rem;
+  text-align: center; }
+  .login-logo a,
+  .register-logo a {
+    color: #495057; }

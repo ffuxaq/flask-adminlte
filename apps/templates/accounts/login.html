@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="/static/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/static/assets/css/adminlte.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/assets/css/cdc.css">
 
 {% endblock stylesheets %}
 
@@ -23,9 +25,9 @@
 
   <div class="login-box">
 
-    <div class="login-logo">
+    <div class="login-logo-cdc">
         <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/product/adminlte/flask/"><b>Admin</b>LTE Flask</a>
+           href="https://appseed.us/product/adminlte/flask/"><b>CDC</b> CONSOLLE DI CANCELLERIA</a>
     </div>
 
     <!-- /.login-logo -->
@@ -36,7 +38,7 @@
             {% if msg %}
               <span class="text-danger">{{ msg | safe }}</span>
             {% else %}
-                Add your credentials
+                Inserisci le credenziali
             {% endif %}
         </p>
 
@@ -65,13 +67,13 @@
               <div class="icheck-primary">
                 <input type="checkbox" id="remember">
                 <label for="remember">
-                  Remember Me
+                  Ricordami
                 </label>
               </div>
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <button type="submit" name="login" class="btn btn-primary btn-block">Sign In</button>
+              <button type="submit" name="login" class="btn btn-primary btn-block">Loggati</button>
             </div>
             <!-- /.col -->
           </div>
@@ -80,10 +82,10 @@
         <br /><br />
 
         <div class="text-center">
-            Not a member? <a href="{{ url_for('authentication_blueprint.register') }}" class="text-center">Register</a>
+            Non sei registrato? <a href="{{ url_for('authentication_blueprint.register') }}" class="text-center">Registrati</a>
             <br />
             <br />
-            &copy; ColorLib 
+            &copy; Tribunale di L'Aquila
             <a target="_blank" rel="noopener noreferrer"
                href="https://appseed.us/product/adminlte/flask/"><b>Admin</b>LTE</a> 
             - coded by <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
