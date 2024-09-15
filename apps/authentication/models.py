@@ -18,7 +18,13 @@ class Users(db.Model, UserMixin):
     username = db.Column(db.String(64), unique=True)
     email = db.Column(db.String(64), unique=True)
     password = db.Column(db.LargeBinary)
-    password_hash: so.Mapped[Optional[str]] = so.mapped_column(db.String(256)) 
+    password_hash: so.Mapped[Optional[str]] = so.mapped_column(db.String(256))
+    o365_name = db.Column(db.String(64), unique=True)
+    o365_email = db.Column(db.String(64), unique=True)
+    o365_ufficio= db.Column(db.String(128), unique=True)
+    o365_code = db.Column(db.String(2056))
+    o365_json = db.Column(db.String())
+    o365_logged_last_time = db.Column(db.String())
     
     def check_password(self, password):
         return check_password_hash(str(self.password_hash), password)
@@ -40,11 +46,9 @@ class Users(db.Model, UserMixin):
     def __repr__(self):
         return str(self.username)
 
-
 @login_manager.user_loader
 def user_loader(id):
     return Users.query.filter_by(id=id).first()
-
 
 @login_manager.request_loader
 def request_loader(request):
