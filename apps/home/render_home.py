@@ -24,10 +24,10 @@ def render_index1(template,segment):
     countProvvTot = 0
     listDistinctGiudici = []
     for res in results:
-        if "sentenze" in  (str(res[63])).lower():
-            countSent = countSent + int(res[63])
+        if "sentenze" in  (str(res[68])).lower():
+            countSent = countSent + int(res[67])
         else:
-            countProvv = countProvv + int(res[63])
+            countProvv = countProvv + int(res[67])
         
         if str(res[0]) not in listDistinctGiudici:
             listDistinctGiudici.append(str(res[0]))
